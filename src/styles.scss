@@ -1,57 +1,75 @@
-.f-container{
-    font-family:monospace;
-    background-color:rgb(148, 195, 242);
-    height: 100vh;
+.f-container {
+  font-family: monospace;
+  background-color: rgb(148, 195, 242);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .f-wrapper {
+    background-color: white;
+    padding: 20px 30px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap: 10px;
 
-    .f-wrapper{
-        background-color: white;
-        padding: 20px 30px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        gap: 10px;
-        .logo{
-            font-weight: bold;
-            font-size:x-large;
-            color: darkslateblue;
-        }
-        .title{
-            color: darkslateblue;
-            font-size: smaller;
-        }
-
-        form{
-            display: flex;
-            flex-direction: column;
-            gap: 15px; 
-            input{
-
-                padding: 15px;
-                width: 200px;
-                border: none;
-                border-bottom: 1px solid rgb(227, 237, 255);
-                &::placeholder{
-                    font-family:Arial, Helvetica, sans-serif;
-                    color: lightgray;
-                }
-            }
-           
-        }
-        button{
-            width: 220px;
-            padding: 10px 10px;
-            background-color: rgb(135, 135, 255);
-        }
+    .logo {
+      font-weight: bold;
+      font-size: x-large;
+      color: darkslateblue;
     }
 
+    .title {
+      color: darkslateblue;
+      font-size: smaller;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      input {
+        padding: 15px;
+        width: 200px;
+        border: none;
+        border-bottom: 1px solid rgb(227, 237, 255);
+
+        &::placeholder {
+          font-family: Arial, Helvetica, sans-serif;
+          color: lightgray;
+        }
+      }
+    }
+
+    button {
+      width: 220px;
+      padding: 10px 10px;
+      background-color: rgb(135, 135, 255);
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 200;
+    }
+  }
+}
+.button-cust {
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
-.button-cust{
-    margin-top: 10px;
-    margin-bottom: 15px;
+label{
+    display: flex;
+    justify-content: center;    
+    img{
+        width: 30px;
+        height: 30px;
+        margin-right: 20px;
+    }
+    span{
+        color:lightblue;
+        text-align:right;
+    }
 }

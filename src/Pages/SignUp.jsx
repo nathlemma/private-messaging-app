@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles.scss"
+import "../styles.scss";
+import addImg from "../images/addAvatar.png";
 
 const SignUp = () => {
   return (
@@ -10,14 +11,17 @@ const SignUp = () => {
         <span className="logo"> Synth</span>
         <span className="title"> Register</span>
         <form>
-          <input type="text" placeholder="Chat Name"/>
-          <input type="email" placeholder="email"/>
-          <input type="password" placeholder="password"/>
-          <input style={{display: 'none'}}type="file"/>
-          <label htmlFor="file">
-          <img src="" alt=""></img>
-          <span>Add an avatar</span>
-          </label>
+          <input type="text" placeholder="Chat Name" />
+          <input type="email" placeholder="email" />
+          <input type="password" placeholder="password" />
+          <input style={{ display: "none" }} id="upload" type="file" />
+          
+            <label htmlFor="upload">
+              <img src={addImg} alt="" />
+              <span>Add an avatar</span>
+            </label>
+           
+        
         </form>
         <button>Sign Up</button>
         <p>Already have an accoung? Sign in</p>
