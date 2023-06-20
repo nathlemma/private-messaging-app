@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles.scss";
 import addImg from "../images/addAvatar.png";
 

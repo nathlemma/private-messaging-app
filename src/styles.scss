@@ -1,3 +1,27 @@
+// :root{
+//   --c-50: #f0f9ff;
+//   --c-100: #e0f2fe;
+//   --c-200: #bae6fd;
+//   --c-300: #7dd3fc;
+//   --c-400: #38bdf8;
+//   --c-500: #0ea5e9;
+// }
+
+:root{
+  --c-50: #f8fafc;
+  --c-100: #f1f5f9;
+  --c-200: #e2e8f0;
+  --c-300: #cbd5e1;
+  --c-400: #94a3b8;
+  --c-500: #64748b;
+  --c-600: #475569;
+  --c-700: #334155;
+  --c-800: #1e293b;
+  --c-900: #0f172a;
+  --c-950: #020617;
+}
+
+
 .f-container {
   font-family: monospace;
   background-color: rgb(148, 195, 242);
@@ -73,3 +97,130 @@ label{
         text-align:right;
     }
 }
+
+.home{
+  font-family: monospace;
+  background-color: var(--c-200);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .h-container{
+    height: 70vh;
+    width: 70vw;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    overflow: hidden;
+    
+    .sidebar{
+      border-right: 1px rgb(0, 0, 0) solid;
+      flex: 1;
+      background-color: var(--c-300);
+      overflow: hidden;
+
+      .navbar{
+        display:flex;
+        background-color: var(--c-500);
+        height: 30px;
+        padding: 10px;
+        justify-content: space-between;
+
+        .n-userdetail{
+          margin-top: auto;
+          margin-bottom: auto;
+          display: flex;
+          gap: 10px;
+
+          .n-username{
+            margin: auto;
+            color: white;
+            font-weight: bold;
+          }
+          .n-profile-pic{
+            background-color: white;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+      
+        button{
+          margin-top: auto;
+          margin-bottom: auto;
+          background-color: var(--c-50);
+          border: none;
+          height: 20px;
+          border-radius: 2px;
+          font-size: 10px;
+        }
+      }
+
+      .s-container{
+        .search{
+          input{
+            width: 100%;
+            background-color: var(--c-100);
+            border: 0px;
+          }
+          input:focus {outline:none!important;}
+        }
+        .s-result{
+          display: flex;
+          border-bottom: 1px #020617 solid;
+          width: 100%;
+          img{
+            margin: 10px 10px 10px 10px;
+            background-color: white;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+          .s-username{
+            margin-bottom: 10px;
+            margin-top: 10px;
+            align-self:center;
+          }
+        }
+      }
+ 
+
+      .friends-cont{
+        margin: 10px 0px 10px 0px;
+        display: flex;
+        flex-direction: column; 
+        .friend{
+          margin: 10px;
+          display: flex;
+          gap: 10px;
+          img{
+            margin-top: auto;
+            margin-bottom: auto;
+            background-color: white;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+          .f-message-disp{
+            
+            .f-username{
+              font-weight: bold;
+            }
+            .f-last-message{
+              font-size: small;
+            }
+          }
+        }
+      }
+    }
+
+    .chats{
+      flex: 2;
+    }
+  }
+}
+
+
