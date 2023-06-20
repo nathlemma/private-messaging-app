@@ -1,24 +1,25 @@
-import { randomFillSync } from 'crypto';
-import React from 'react'
+import React from "react";
+import "../styles.scss"
 
-const SignUp = ()=>{
-    return(
-        <div className='container'>
-        <div className='wrapper'> 
-        <h1>Lemma Chat</h1>
-        <p>Sign up</p>
+const SignUp = () => {
+  return (
+    <div className="f-container">
+      <div className="f-wrapper">
+        {/* <h1>Synth</h1>
+        <p>Sign up</p> */}
+        <span className="logo"> Synth</span>
+        <span className="title"> Register</span>
         <form>
-            <input>User Name</input>
-            <input>email</input>
-            <input>Password</input>
-            <input>Avatar</input>
-            <button>Sign Up</button>
-            <p>If you have an account, Sign in</p>
+          <input type="text" placeholder="Chat Name"/>
+          <input type="email" placeholder="email"/>
+          <input type="password" placeholder="password"/>
+          <input type="file"/>
         </form>
-        </div>
-        </div>
-    )
-}
+        <button>Sign Up</button>
+        <p>Already have an accoung? Sign in</p>
+      </div>
+    </div>
+  );
+};
 
 export default SignUp;
-
