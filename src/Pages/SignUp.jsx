@@ -13,7 +13,11 @@ const SignUp = () => {
           <input type="text" placeholder="Chat Name"/>
           <input type="email" placeholder="email"/>
           <input type="password" placeholder="password"/>
-          <input type="file"/>
+          <input style={{display: 'none'}}type="file"/>
+          <label htmlFor="file">
+          <img src="" alt=""></img>
+          <span>Add an avatar</span>
+          </label>
         </form>
         <button>Sign Up</button>
         <p>Already have an accoung? Sign in</p>
