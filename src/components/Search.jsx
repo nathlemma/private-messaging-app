@@ -14,7 +14,7 @@ const Search = () => {
         <div className="s-username">User Name</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Search;

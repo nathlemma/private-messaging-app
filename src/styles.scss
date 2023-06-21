@@ -23,7 +23,7 @@
 
 
 .f-container {
-  font-family: monospace;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(148, 195, 242);
   height: 100vh;
   display: flex;
@@ -99,7 +99,7 @@ label{
 }
 
 .home{
-  font-family: monospace;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--c-200);
   height: 100vh;
   display: flex;
@@ -147,6 +147,7 @@ label{
         }
       
         button{
+          
           margin-top: auto;
           margin-bottom: auto;
           background-color: var(--c-50);
@@ -168,6 +169,7 @@ label{
         }
         .s-result{
           display: flex;
+          justify-content: center;
           border-bottom: 1px #020617 solid;
           width: 100%;
           img{
@@ -182,7 +184,10 @@ label{
             margin-bottom: 10px;
             margin-top: 10px;
             align-self:center;
+            font-weight: bold;
           }
+        }:hover{
+            background-color: var(--c-500);
         }
       }
  
@@ -205,7 +210,6 @@ label{
             object-fit: cover;
           }
           .f-message-disp{
-            
             .f-username{
               font-weight: bold;
             }
@@ -213,12 +217,32 @@ label{
               font-size: small;
             }
           }
+        }:hover{
+          background-color: var(--c-400);
+          border-radius: 10px;
         }
       }
     }
 
     .chats{
       flex: 2;
+      .c-nav{
+        display:flex;
+        background-color: var(--c-700);
+        height: 30px;
+        padding: 10px;
+        justify-content: space-between;
+        .c-icons{
+          display: flex;
+          justify-content:right;
+          width: 100%;
+          img{
+            height: 24px;
+            height: 24px;
+            margin-left: 5px;
+          }
+        }
+      }
     }
   }
 }
