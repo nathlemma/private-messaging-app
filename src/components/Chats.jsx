@@ -2,6 +2,8 @@ import "../styles.scss";
 import cam from "../images/cam.png";
 import more from "../images/more.png";
 import add from "../images/add.png";
+import TypeField from "./TypeField";
+import Messages from "./Messages";
 
 const Chats = () => {
   return (
@@ -13,6 +15,8 @@ const Chats = () => {
           <img src={more} />
         </div>
       </div>
+      <Messages />
+      <TypeField />
     </div>
   );
 };

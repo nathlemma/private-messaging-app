@@ -187,7 +187,7 @@ label{
             font-weight: bold;
           }
         }:hover{
-            background-color: var(--c-500);
+            background-color: var(--c-400);
         }
       }
  
@@ -226,6 +226,11 @@ label{
 
     .chats{
       flex: 2;
+      background-color: var(--c-100);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
       .c-nav{
         display:flex;
         background-color: var(--c-700);
@@ -243,6 +248,44 @@ label{
           }
         }
       }
+      .messages-cont{
+        .message-cont{
+          display: flex;
+          justify-content: left;
+        }
+      }
+      .typefield-cont{
+        background-color: white;
+        margin-top: auto;
+        height: 50px;
+        padding:10px;
+        display: flex;
+        input{
+          flex:2;
+          border: none;
+          
+        }:focus {outline:none!important;}
+
+        .send{
+          flex:1;
+          display: flex;
+          justify-content: right;
+          img{
+            flex:1;
+            margin: auto;
+            margin-right: 10px;
+          }
+          button{
+            height: 100%;
+            flex:1;
+            background-color: var(--c-200);
+            border: none;
+            margin-right:0px;
+          }
+        }
+      }
+     
+  
     }
   }
 }
