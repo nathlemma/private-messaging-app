@@ -7,7 +7,7 @@
 //   --c-500: #0ea5e9;
 // }
 
-:root{
+:root {
   --c-50: #f8fafc;
   --c-100: #f1f5f9;
   --c-200: #e2e8f0;
@@ -79,65 +79,70 @@
     }
   }
 }
+
 .button-cust {
   margin-top: 10px;
   margin-bottom: 15px;
 }
 
-label{
-    display: flex;
-    justify-content: center;    
-    img{
-        width: 30px;
-        height: 30px;
-        margin-right: 20px;
-    }
-    span{
-        color:lightblue;
-        text-align:right;
-    }
+label {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+  }
+
+  span {
+    color: lightblue;
+    text-align: right;
+  }
 }
 
-.home{
+.home {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--c-200);
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  .h-container{
+
+  .h-container {
     height: 70vh;
     width: 70vw;
     border-radius: 10px;
     background-color: white;
     display: flex;
     overflow: hidden;
-    
-    .sidebar{
-      border-right: 1px rgb(0, 0, 0) solid;
+
+    .sidebar {
+      border-right: 1px var(--c-50) solid;
       flex: 1;
-      background-color: var(--c-300);
+      background-color: var(--c-400);
       overflow: hidden;
 
-      .navbar{
-        display:flex;
+      .navbar {
+        display: flex;
         background-color: var(--c-500);
         height: 30px;
         padding: 10px;
         justify-content: space-between;
 
-        .n-userdetail{
+        .n-userdetail {
           margin-top: auto;
           margin-bottom: auto;
           display: flex;
           gap: 10px;
 
-          .n-username{
+          .n-username {
             margin: auto;
             color: white;
             font-weight: bold;
           }
-          .n-profile-pic{
+
+          .n-profile-pic {
             background-color: white;
             height: 24px;
             width: 24px;
@@ -145,9 +150,9 @@ label{
             object-fit: cover;
           }
         }
-      
-        button{
-          
+
+        button {
+
           margin-top: auto;
           margin-bottom: auto;
           background-color: var(--c-50);
@@ -158,21 +163,27 @@ label{
         }
       }
 
-      .s-container{
-        .search{
-          input{
+      .s-container {
+
+        .search {
+          input {
             width: 100%;
             background-color: var(--c-100);
             border: 0px;
           }
-          input:focus {outline:none!important;}
+
+          input:focus {
+            outline: none !important;
+          }
         }
-        .s-result{
+
+        .s-result {
           display: flex;
           justify-content: center;
           border-bottom: 1px #020617 solid;
           width: 100%;
-          img{
+
+          img {
             margin: 10px 10px 10px 10px;
             background-color: white;
             height: 24px;
@@ -180,27 +191,32 @@ label{
             border-radius: 50%;
             object-fit: cover;
           }
-          .s-username{
+
+          .s-username {
             margin-bottom: 10px;
             margin-top: 10px;
-            align-self:center;
+            align-self: center;
             font-weight: bold;
           }
-        }:hover{
-            background-color: var(--c-400);
+        }
+
+        :hover {
+          background-color: var(--c-400);
         }
       }
- 
 
-      .friends-cont{
+
+      .friends-cont {
         margin: 10px 0px 10px 0px;
         display: flex;
-        flex-direction: column; 
-        .friend{
+        flex-direction: column;
+
+        .friend {
           margin: 10px;
           display: flex;
           gap: 10px;
-          img{
+
+          img {
             margin-top: auto;
             margin-bottom: auto;
             background-color: white;
@@ -209,85 +225,184 @@ label{
             border-radius: 50%;
             object-fit: cover;
           }
-          .f-message-disp{
-            .f-username{
+
+          .f-message-disp {
+            .f-username {
               font-weight: bold;
             }
-            .f-last-message{
+
+            .f-last-message {
               font-size: small;
             }
           }
-        }:hover{
+        }
+
+        :hover {
           background-color: var(--c-400);
           border-radius: 10px;
         }
       }
     }
 
-    .chats{
+    .chats {
       flex: 2;
-      background-color: var(--c-100);
+      background-color: var(--c-300);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
 
-      .c-nav{
-        display:flex;
+      .c-nav {
+        display: flex;
         background-color: var(--c-700);
         height: 30px;
         padding: 10px;
         justify-content: space-between;
-        .c-icons{
+
+        .c-icons {
           display: flex;
-          justify-content:right;
+          justify-content: right;
           width: 100%;
-          img{
+
+          img {
             height: 24px;
-            height: 24px;
+            width: 24px;
             margin-left: 5px;
           }
         }
       }
-      .messages-cont{
-        .message-cont{
+
+      .messages-container {
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+        //flex-direction: row-reverse;
+
+        .message-container {
+          // align-items: center;
+          margin: 20px 10px 20px 20px;
           display: flex;
-          justify-content: left;
+
+
+
+          //gap: 20px;
+
+          //align-self: flex-start;
+
+          .message-header {
+            justify-content: flex-start;
+            display: flex;
+            flex-direction: column;
+            margin-right: 10px;
+
+            .m-pfp {
+              margin-top: 10px;
+              height: 35px;
+              width: 35px;
+              border-radius: 50%;
+              align-self: center;
+              object-fit: cover;
+            }
+
+            span {
+              margin-top: 10px;
+              color: white;
+              font-size: small;
+            }
+          }
+
+          .message-content {
+            max-width: 50%;
+            display: flex;
+            flex-direction: column;
+
+            img {
+              border-radius: 10px;
+            }
+          }
+
+          &.user {
+            flex-direction: row-reverse;
+
+            .message-content {
+              p {
+                background-color: var(--c-500);
+                color: white;
+                border-radius: 10px 1px 10px 10px;
+                padding: 10px 10px;
+                font-size: smaller;
+              }
+            }
+
+          }
+
+          &.friend {
+            flex-direction: row;
+
+            p {
+              color: black;
+              background-color: white;
+              padding: 10px 10px;
+              border-radius: 1px 10px 10px 10px;
+              font-size: smaller;
+            }
+
+
+          }
         }
+
+
       }
-      .typefield-cont{
+
+      .typefield-cont {
         background-color: white;
         margin-top: auto;
         height: 50px;
-        padding:10px;
+        padding: 10px;
         display: flex;
-        input{
-          flex:2;
-          border: none;
-          
-        }:focus {outline:none!important;}
+        border-radius: 10px 10px 10px 10px;
 
-        .send{
-          flex:1;
+        input {
+          flex: 2;
+          border: none;
+
+        }
+
+        :focus {
+          outline: none !important;
+        }
+
+        .send {
+          flex: 1;
           display: flex;
           justify-content: right;
-          img{
-            flex:1;
+
+
+          img {
+            flex: 1;
             margin: auto;
             margin-right: 10px;
           }
-          button{
+
+          button {
             height: 100%;
-            flex:1;
-            background-color: var(--c-200);
+            flex: 1;
+            background-color: var(--c-300);
             border: none;
-            margin-right:0px;
+            margin-right: 0px;
+            cursor: pointer;
+            border-radius: 10px;
           }
+
+          button:hover {
+            background-color: var(--c-400);
+
+          }
+
+
         }
       }
-     
-  
+
+
     }
   }
 }
-
-
