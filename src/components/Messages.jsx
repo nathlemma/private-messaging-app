@@ -1,4 +1,5 @@
 import default_pfp from "../images/default-pfp.jpg";
+import pfp_1 from "../images/pfp-1.png";
 import { useState } from "react";
 
 const Message = () => {
@@ -18,14 +19,7 @@ const Message = () => {
         <span>1 min ago</span>
       </div>
       <div className="message-content">
-        <p>
-          hey how are you hey how are you hey how are you hey how are you hey
-          how are you hey how are you hey how are you hey how are you hey how
-          are you hey how are you hey how are you hey how are you hey how are
-          you hey how are you hey how are you hey how are you hey how are you
-          hey how are you hey how are youhey how are you hey how are you hey how
-          are you hey how are you
-        </p>
+        <p>hey</p>
         <img
           src="https://asia.olympus-imaging.com/content/000107507.jpg"
           className="m-pfp"

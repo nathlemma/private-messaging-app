@@ -19,12 +19,13 @@
   --c-800: #1e293b;
   --c-900: #0f172a;
   --c-950: #020617;
+  --home: rgb(177, 187, 254);
 }
 
 
 .f-container {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(148, 195, 242);
+  background-color: var(--home);
   height: 100vh;
   display: flex;
   align-items: center;
@@ -69,14 +70,23 @@
       }
     }
 
+    label {
+      display: flex;
+      align-items: center;
+    }
+
     button {
       width: 220px;
       padding: 10px 10px;
-      background-color: rgb(135, 135, 255);
+      background-color: rgb(0, 0, 0);
       color: white;
+      border-radius: 5px;
       font-family: Arial, Helvetica, sans-serif;
       font-weight: 200;
+      border: none;
+      cursor: pointer;
     }
+
   }
 }
 
@@ -101,9 +111,13 @@ label {
   }
 }
 
+html,
+body {
+  background-color: var(--home);
+}
+
 .home {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--c-200);
   height: 100vh;
   display: flex;
   align-items: center;
@@ -111,7 +125,7 @@ label {
 
   .h-container {
     height: 70vh;
-    width: 70vw;
+    width: 60vw;
     border-radius: 10px;
     background-color: white;
     display: flex;
@@ -120,26 +134,31 @@ label {
     .sidebar {
       border-right: 1px var(--c-50) solid;
       flex: 1;
-      background-color: var(--c-400);
+      background-color: var(--c-500);
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
 
       .navbar {
         display: flex;
         background-color: var(--c-500);
-        height: 30px;
+        max-height: 30px;
         padding: 10px;
         justify-content: space-between;
+        border-radius: 0 0 0 10px;
+
 
         .n-userdetail {
           margin-top: auto;
           margin-bottom: auto;
           display: flex;
-          gap: 10px;
 
           .n-username {
             margin: auto;
             color: white;
             font-weight: bold;
+            margin-left: 10px;
           }
 
           .n-profile-pic {
@@ -152,7 +171,6 @@ label {
         }
 
         button {
-
           margin-top: auto;
           margin-bottom: auto;
           background-color: var(--c-50);
@@ -166,10 +184,15 @@ label {
       .s-container {
 
         .search {
-          input {
-            width: 100%;
-            background-color: var(--c-100);
-            border: 0px;
+          form {
+            background-color: white;
+
+            input {
+              width: 100%;
+              height: 100%;
+              border: 0px;
+
+            }
           }
 
           input:focus {
@@ -180,8 +203,10 @@ label {
         .s-result {
           display: flex;
           justify-content: center;
-          border-bottom: 1px #020617 solid;
+          background-color: var(--c-600);
+          color: white;
           width: 100%;
+
 
           img {
             margin: 10px 10px 10px 10px;
@@ -201,7 +226,8 @@ label {
         }
 
         :hover {
-          background-color: var(--c-400);
+          //background-color: var(--c-100);
+          cursor: pointer;
         }
       }
 
@@ -229,24 +255,27 @@ label {
           .f-message-disp {
             .f-username {
               font-weight: bold;
+              color: white;
             }
 
             .f-last-message {
               font-size: small;
+              color: white;
             }
           }
         }
 
         :hover {
-          background-color: var(--c-400);
+          background-color: var(--c-700);
           border-radius: 10px;
+          cursor: pointer;
         }
       }
     }
 
     .chats {
-      flex: 2;
-      background-color: var(--c-300);
+      flex: 3;
+      background-color: var(--c-200);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -275,14 +304,13 @@ label {
         display: flex;
         flex-direction: column;
         overflow: scroll;
+        max-height: 100%;
         //flex-direction: row-reverse;
 
         .message-container {
           // align-items: center;
           margin: 20px 10px 20px 20px;
           display: flex;
-
-
 
           //gap: 20px;
 
@@ -304,7 +332,6 @@ label {
             }
 
             span {
-              margin-top: 10px;
               color: white;
               font-size: small;
             }
@@ -325,11 +352,13 @@ label {
 
             .message-content {
               p {
+                align-self: flex-end;
                 background-color: var(--c-500);
                 color: white;
                 border-radius: 10px 1px 10px 10px;
                 padding: 10px 10px;
                 font-size: smaller;
+                width: max-content;
               }
             }
 
@@ -344,6 +373,7 @@ label {
               padding: 10px 10px;
               border-radius: 1px 10px 10px 10px;
               font-size: smaller;
+              width: max-content;
             }
 
 
@@ -359,12 +389,11 @@ label {
         height: 50px;
         padding: 10px;
         display: flex;
-        border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 0px;
 
         input {
-          flex: 2;
+          flex: 3;
           border: none;
-
         }
 
         :focus {
@@ -375,6 +404,7 @@ label {
           flex: 1;
           display: flex;
           justify-content: right;
+          maximum-width: 10px;
 
 
           img {
@@ -391,6 +421,7 @@ label {
             margin-right: 0px;
             cursor: pointer;
             border-radius: 10px;
+
           }
 
           button:hover {
