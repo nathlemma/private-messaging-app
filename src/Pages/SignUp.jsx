@@ -1,29 +1,67 @@
 import "../styles.scss";
 import addImg from "../images/addAvatar.png";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-// import auth from "../firebase";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+
+import { auth, storage, db } from "../firebase";
+import React, { useState } from "react";
+import { doc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
-  const handleSubmit = (event) => {
+  const [error, setError] = useState(false);
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const userName = event.target[0].value;
-    const userEmail = event.target[1].value;
-    const userPassword = event.target[2].value;
-    const userPfp = event.target[3].file[0];
+    const email = event.target[1].value;
+    const password = event.target[2].value;
+    const userPfp = event.target[3].files[0];
+    console.log(userPfp);
+    try {
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const storageRef = ref(storage, userName);
+      const uploadTask = uploadBytesResumable(storageRef, userPfp);
+      console.log(res);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload is " + progress + "% done");
+          switch (snapshot.state) {
+            case "paused":
+              console.log("Upload is paused");
+              break;
+            case "running":
+              console.log("Upload is running");
+              break;
+          }
+        },
+        (error) => {
+          setError(true);
+          console.log(error);
+        },
+        async () => {
+          setError(false);
+          await updateProfile(res.user, {
+            displayName: userName,
+            photoURL: getDownloadURL(res.user.photoURL),
+          });
+        }
+      );
+      await setDoc(doc(db, "users", res.user.uid), {
+        name: userName,
+        state: "CA",
+        country: "USA",
+      });
+    } catch (err) {
+      setError(true);
+    }
   };
-
-  // const auth = getAuth();
-  // signInWithEmailAndPassword(auth, email, password)
-  //   .then((userCredential) => {
-  //     // Signed in
-  //     const user = userCredential.user;
-  //     // ...
-  //   })
-  //   .catch((error) => {
-  //     const errorCode = error.code;
-  //     const errorMessage = error.message;
-  //   });
-
   return (
     <div className="f-container">
       <div className="f-wrapper">
@@ -42,6 +80,7 @@ const SignUp = () => {
             <span>Add an avatar</span>
           </label>
           <button type="submit">Sign Up</button>
+          {error && <span className="error">Something went wrong.</span>}
         </form>
 
         <p style={{ "font-size": "small", color: "gray" }}>
