@@ -20,45 +20,38 @@ const SignUp = () => {
     const email = event.target[1].value;
     const password = event.target[2].value;
     const userPfp = event.target[3].files[0];
-    console.log(userPfp);
+
     try {
-      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log(userPfp);
       const storageRef = ref(storage, userName);
       const uploadTask = uploadBytesResumable(storageRef, userPfp);
-      console.log(res);
       uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
-          switch (snapshot.state) {
-            case "paused":
-              console.log("Upload is paused");
-              break;
-            case "running":
-              console.log("Upload is running");
-              break;
-          }
-        },
-        (error) => {
-          setError(true);
-          console.log(error);
-        },
-        async () => {
-          setError(false);
-          await updateProfile(res.user, {
-            displayName: userName,
-            photoURL: getDownloadURL(res.user.photoURL),
+        (err) => setError(true),
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+            await updateProfile(response.user, {
+              userName,
+              pfpURL: downloadURL,
+            });
+
+            await setDoc(doc(db, "users", response.user.uid), {
+              id: response.user.uid,
+              userName,
+              email,
+              pfpURL: downloadURL,
+            });
+            await setDoc(doc(db, "usersChat", response.user.uid, {}));
           });
         }
       );
-      await setDoc(doc(db, "users", res.user.uid), {
-        name: userName,
-        state: "CA",
-        country: "USA",
-      });
+      setError(false);
     } catch (err) {
+      console.error(err);
       setError(true);
     }
   };
